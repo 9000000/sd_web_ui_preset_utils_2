@@ -526,8 +526,8 @@ class PresetManager(scripts.Script):
                 for i,k in enumerate(x for x in self.component_map if self.component_map[x] is not None):
                     if k != "Sampling method" and not hasattr(self.component_map[k], "type"):
                         return_dict.update({k: new_setting[i]})
-                    elif k == "Sampling method":
-                        return_dict.update({k: modules.sd_samplers.samplers[new_setting[i]].name if self.is_txt2img else  modules.sd_samplers.samplers_for_img2img[new_setting[i]].name})
+                    # elif k == "Sampling method":
+                    #     return_dict.update({k: modules.sd_samplers.samplers[new_setting[i]].name if self.is_txt2img else  modules.sd_samplers.samplers_for_img2img[new_setting[i]].name})
                     elif self.component_map[k].type == "index":
                         return_dict.update({k: self.component_map[k].choices[new_setting[i]]})
                     else:
@@ -575,8 +575,8 @@ Length: {len(self.available_components)}\t keys: {self.available_components}")
                 for e in items:
                     if e[1][0] != "Sampling method" and not hasattr(e[1][1], "type"):
                         return_dict.update({e[1][0]: e[0]})
-                    elif e[1][0] == "Sampling method":
-                        return_dict.update({e[1][0]: modules.sd_samplers.samplers[e[0]].name if self.is_txt2img else  modules.sd_samplers.samplers_for_img2img[e[0]].name})
+                    # elif e[1][0] == "Sampling method":
+                    #     return_dict.update({e[1][0]: modules.sd_samplers.samplers[e[0]].name if self.is_txt2img else  modules.sd_samplers.samplers_for_img2img[e[0]].name})
                     elif e[1][1].type == "index":
                         return_dict.update({e[1][0]: e[1][1].choices[e[0]]})
                     else:
